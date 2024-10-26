@@ -18,10 +18,6 @@ To set up the backend:
 
 1.  Clone the backend repository:
     
-    bash
-    
-    Копіювати код
-    
     `git clone https://github.com/coldshein/hero-vault_backend.git` 
     
 2.  Open the backend folder in your IDE (e.g., VS Code).
