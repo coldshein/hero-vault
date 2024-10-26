@@ -51,13 +51,13 @@ Next, clone and start the frontend:
 ## Project Structure
 
 -   **backend/** - Backend API and database connection to MongoDB.
--   **frontend/** - Frontend interface, built with React and Next.js.
+-   **frontend/** - Frontend interface, built with React.js.
 
 ## Technologies Used
 
 -   **Frontend:** React.js, Redux Toolkit, TypeScript, Material-UI, TailwindCSS, Vite.
--   **Backend:** Node.js, Express.js, MongoDB, Mongoose, UUID, Multer.
--   **Other tools:** Axios.
+-   **Backend:** Node.js, Express.js, MongoDB.
+-   **Other tools:** Axios, Mongoose, UUID, Multer.
 
 ## Key Features
 
