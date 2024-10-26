@@ -72,7 +72,7 @@ export const Details = () => {
           </span>
         </p>
         <div className="flex gap-1 items-center ">
-          Super power:
+          Super power:{" "}
           <ul className="flex gap-1 text-sm">
             {item?.superpowers.map((superpower) => (
               <li
@@ -85,7 +85,7 @@ export const Details = () => {
           </ul>
         </div>
         <p className="text-sm md:text-lg ">
-          Catch phrase:
+          Catch phrase:{" "}
           <span className="font-semibold text-main-text ">
             "<i>{item?.catch_phrase}</i>"
           </span>
@@ -93,10 +93,7 @@ export const Details = () => {
         <p className="text-sm md:text-lg ">
           Description:{" "}
           <span className="font-semibold text-main-text ">
-            {item?.origin_description} lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Iste excepturi accusantium quaerat at eveniet
-            dolores voluptas blanditiis officia dolorum. Id autem molestiae
-            beatae sapiente! Ad praesentium consequuntur quidem.
+            {item?.origin_description}
           </span>
         </p>
       </div>

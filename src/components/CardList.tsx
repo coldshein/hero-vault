@@ -22,6 +22,7 @@ export const CardList = () => {
     setCurrentPage(value);
   };
 
+
   return (
     <section className="pb-3 w-full">
       {isLoading ? (
@@ -31,6 +32,11 @@ export const CardList = () => {
           <ul className="grid grid-cols-[300px] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 gap-y-8 justify-center">
             {isError ? (
               <p>Something went wrong...</p>
+            ) : !items.length ? (
+              <h3>
+                There is no at least one SuperHero, but you can fix this by
+                adding one by clicking 'Add The Hero' button
+              </h3>
             ) : (
               items.map((hero) => (
                 <li className="w-full" key={hero._id}>

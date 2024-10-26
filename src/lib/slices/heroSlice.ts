@@ -128,6 +128,9 @@ const heroSlice = createSlice({
     setHeroes: (state, action: PayloadAction<HeroInterface[]>) => {
       state.heroes.items = action.payload;
     },
+    addHero: (state, action: PayloadAction<HeroInterface>) => {
+      state.heroes.items.push(action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -171,5 +174,5 @@ const heroSlice = createSlice({
   },
 });
 
-export const { setHero, setHeroes } = heroSlice.actions;
+export const { setHero, setHeroes, addHero } = heroSlice.actions;
 export default heroSlice.reducer;

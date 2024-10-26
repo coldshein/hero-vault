@@ -8,6 +8,8 @@ import { useValidation } from "../hooks/useValidation";
 import { createHero } from "../lib/slices/heroSlice";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { VisuallyHiddenInput } from "../utils/hiddenInput";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { HeroInterface } from "../types/HeroType";
 
 export const CreateHero = () => {
   const dispatch = useAppDispatch();
@@ -73,7 +75,8 @@ export const CreateHero = () => {
     };
 
     try {
-      await dispatch(createHero(fields));
+      (await dispatch(createHero(fields))) as PayloadAction<HeroInterface[]>;
+
       resetForm();
       dispatch(setCloseAside());
     } catch (error) {
