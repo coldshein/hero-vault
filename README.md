@@ -55,8 +55,8 @@ Next, clone and start the frontend:
 
 ## Technologies Used
 
--   **Frontend:** React, Redux Toolkit, TypeScript, Material-UI, TailwindCSS.
--   **Backend:** Node.js, Express, MongoDB.
+-   **Frontend:** React.js, Redux Toolkit, TypeScript, Material-UI, TailwindCSS, Vite.
+-   **Backend:** Node.js, Express.js, MongoDB, Mongoose, UUID, Multer.
 -   **Other tools:** Axios.
 
 ## Key Features
