@@ -1,50 +1,70 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Hero Vault
 
-Currently, two official plugins are available:
+**Hero Vault** is the frontend part of a project designed to manage superheroes. It allows users to create, view, and edit information about heroes. This project is built with **React** and **Node.js**, with **MongoDB** as the database.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
 
-## Expanding the ESLint configuration
+-   **Node.js** v14 or newer
+-   **npm** or **yarn** as a package manager
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+The project consists of two parts: backend (server) and frontend (interface).
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 1. Clone and Run the Backend
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+To set up the backend:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1.  Clone the backend repository:
+    
+    bash
+    
+    Копіювати код
+    
+    `git clone https://github.com/coldshein/hero-vault_backend.git` 
+    
+2.  Open the backend folder in your IDE (e.g., VS Code).
+    
+3.  Install dependencies and start the server:
+    
+    `npm install` `npm start` 
+    
+    This connects the server to the database and starts the API.
+    
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+> **Note:** Ensure MongoDB is running locally.
+
+### 2. Clone and Run the Frontend
+
+Next, clone and start the frontend:
+
+1.  Clone the frontend repository:
+    
+    `git clone https://github.com/coldshein/hero-vault.git` 
+    
+3.  Open the frontend folder in your IDE.
+    
+4.  Install dependencies and run the project:
+
+    `npm install` `npm run dev` 
+    
+    This starts the local development server for the frontend.
+    
+
+## Project Structure
+
+-   **backend/** - Backend API and database connection to MongoDB.
+-   **frontend/** - Frontend interface, built with React and Next.js.
+
+## Technologies Used
+
+-   **Frontend:** React, Redux Toolkit, TypeScript, Material-UI, TailwindCSS.
+-   **Backend:** Node.js, Express, MongoDB.
+-   **Other tools:** Axios.
+
+## Key Features
+
+-   **Create and edit hero profiles**
+-   **Upload and display images**
+-   **Data storage in MongoDB**
