@@ -69,65 +69,57 @@ export const getHeroById = createAsyncThunk<HeroInterface, string>(
   }
 );
 
-export const createHero = createAsyncThunk<HeroInterface, Partial<HeroInterface>>(
-  "hero/createHero",
-  async (body, { rejectWithValue }) => {
-    try {
-      const response: AxiosResponse<HeroInterface> = await axios.post(
-        `/api/heroes`,
-        body
-      );
-      return response.data;
-    } catch (error: any) {
-      return rejectWithValue(
-        error.response?.data?.message || "Failed to create hero"
-      );
-    }
+export const createHero = createAsyncThunk<
+  HeroInterface,
+  Partial<HeroInterface>
+>("hero/createHero", async (body, { rejectWithValue }) => {
+  try {
+    const response: AxiosResponse<HeroInterface> = await axios.post(
+      `/api/heroes`,
+      body
+    );
+    return response.data;
+  } catch (error: any) {
+    return rejectWithValue(
+      error.response?.data?.message || "Failed to create hero"
+    );
   }
-);
+});
 
-export const updateHero = createAsyncThunk<HeroInterface, { id: string; updatedFields: Partial<HeroInterface> }>(
-  "hero/updateHero",
-  async ({ id, updatedFields }, { rejectWithValue }) => {
-    try {
-      const response: AxiosResponse<HeroInterface> = await axios.put(
-        `/api/heroes/${id}`,
-        updatedFields
-      );
-      return response.data;
-    } catch (error: any) {
-      return rejectWithValue(
-        error.response?.data?.message || "Failed to update hero"
-      );
-    }
+export const updateHero = createAsyncThunk<
+  HeroInterface,
+  { id: string; updatedFields: Partial<HeroInterface> }
+>("hero/updateHero", async ({ id, updatedFields }, { rejectWithValue }) => {
+  try {
+    const response: AxiosResponse<HeroInterface> = await axios.put(
+      `/api/heroes/${id}`,
+      updatedFields
+    );
+    return response.data;
+  } catch (error: any) {
+    return rejectWithValue(
+      error.response?.data?.message || "Failed to update hero"
+    );
   }
-);
+});
 
 export const deleteHero = createAsyncThunk<void, string>(
-  'hero/deleteHero', async (id, {rejectWithValue}) => {
+  "hero/deleteHero",
+  async (id, { rejectWithValue }) => {
     try {
-      await axios.delete(
-        `/api/heroes/${id}`
-      );
+      await axios.delete(`/api/heroes/${id}`);
     } catch (error: any) {
       return rejectWithValue(
         error.response?.data?.message || "Failed to delete hero"
       );
     }
   }
-)
-
+);
 
 const heroSlice = createSlice({
   name: "heroList",
   initialState,
   reducers: {
-    setHero: (state, action: PayloadAction<HeroInterface | null>) => {
-      state.hero.item = action.payload;
-    },
-    setHeroes: (state, action: PayloadAction<HeroInterface[]>) => {
-      state.heroes.items = action.payload;
-    },
     addHero: (state, action: PayloadAction<HeroInterface>) => {
       state.heroes.items.push(action.payload);
     },
@@ -174,5 +166,5 @@ const heroSlice = createSlice({
   },
 });
 
-export const { setHero, setHeroes, addHero } = heroSlice.actions;
+export const { addHero } = heroSlice.actions;
 export default heroSlice.reducer;

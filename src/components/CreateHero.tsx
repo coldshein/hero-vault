@@ -1,15 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TextField, Button } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import axios from "axios";
 import classNames from "classnames";
 import { setCloseAside } from "../lib/slices/asideSlice";
 import { useValidation } from "../hooks/useValidation";
-import { createHero } from "../lib/slices/heroSlice";
+import { addHero, createHero } from "../lib/slices/heroSlice";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { VisuallyHiddenInput } from "../utils/hiddenInput";
-import { PayloadAction } from "@reduxjs/toolkit";
-import { HeroInterface } from "../types/HeroType";
 
 export const CreateHero = () => {
   const dispatch = useAppDispatch();
@@ -75,10 +73,12 @@ export const CreateHero = () => {
     };
 
     try {
-      (await dispatch(createHero(fields))) as PayloadAction<HeroInterface[]>;
-
-      resetForm();
-      dispatch(setCloseAside());
+      const response = await dispatch(createHero(fields));
+      if (createHero.fulfilled.match(response)) {
+        resetForm();
+        dispatch(setCloseAside());
+        dispatch(addHero(response.payload));
+      }
     } catch (error) {
       console.warn("Publication failed!", error);
     }
@@ -92,6 +92,10 @@ export const CreateHero = () => {
     handleChange("superpower", "");
     setImages([]);
   };
+
+  useEffect(() => {
+    
+  },[onSubmit])
 
   return (
     <section
